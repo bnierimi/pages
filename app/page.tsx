@@ -53,7 +53,7 @@ export default function Home() {
           </button>
 
           {/* ~ header: title */}
-          <h1 className="text-xl font-semibold flex items-center space-x-2 bg-transparent/10 dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
+          <h1 className="text-xl font-medium flex items-center space-x-2 bg-transparent/10 dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
             <div className="overflow-hidden rounded-full">
               <Avatar
                 size={27}

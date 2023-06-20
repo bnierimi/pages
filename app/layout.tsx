@@ -39,8 +39,8 @@ export default function RootLayout({
 
               {/* ~ header: title */}
               <h1 className="text-lg font-medium flex items-center space-x-2">
-                <div className="text-zinc-500 dark:text-zinc-300 rounded-md flex items-center space-x2">
-                  <p className="">Tcitrogg</p>
+                <div className="text-zinc-500dark:text-zinc-300 rounded-md flex items-center space-x2">
+                  <p className="opacity-50">Tcitrogg</p>
                 </div>
                 <span className="p-0.5 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
                 <span className="">Pages</span>
