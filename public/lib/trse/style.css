@@ -1,0 +1,29 @@
+
+/* bnierimi@tcitrogg */
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.scrollbar::-webkit-scrollbar{
+    width: 9px;
+    height: 9px;
+}
+.scrollbar::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #1a1a1a;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hide-scrollbar::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+
+.h-smscreen{
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}

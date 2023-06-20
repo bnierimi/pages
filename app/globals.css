@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* (bnierimi@tcitrogg): trse */
+
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.scrollbar::-webkit-scrollbar{
+  width: 9px;
+  height: 9px;
+}
+.scrollbar::-webkit-scrollbar-thumb{
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #1a1a1a;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hide-scrollbar::-webkit-scrollbar{
+  width: 0px;
+  height: 0px;
+}
+
+.h-smscreen{
+height: 100vh;
+height: calc(var(--vh, 1vh) * 100);
+}
+
+/* </end> */
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */

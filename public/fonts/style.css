@@ -1,0 +1,16 @@
+/* fonts */
+@font-face {
+  font-family: "Campton";
+  src: url("/fonts/campton/CamptonMedium.otf") format("otf"), ;
+  /* url("../fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+  font-weight: bold;
+  font-display: swap;
+}
+
+/* Styles */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Campton";
+  font-weight: 400;
+}
