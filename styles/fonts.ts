@@ -11,7 +11,9 @@ import localFont from 'next/font/local'
 
 // define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
 const instrumentSans = localFont({ src: 'InstrumentSans-VariableFont-wdth-wght.ttf' })
+const poppins = localFont({ src: 'Poppins-Regular.ttf' })
+const questrial = localFont({ src: 'Questrial-Regular.ttf' })
  
 // export { inter, lora, sourceCodePro400, sourceCodePro700, greatVibes }
  
-export { instrumentSans }
+export { instrumentSans, poppins, questrial }

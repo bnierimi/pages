@@ -1,6 +1,6 @@
 "use client";
 
-// import Editor from "@/components/Editor";
+import EditorRenderer from "@/components/EditorRenderer";
 
 import { useState } from "react";
 // import { useEffect } from "react";
@@ -22,7 +22,7 @@ export default function ViewPage() {
   const router = useRouter();
   const params = useParams();
 
-  const [pageContent, setPageContent] = useState<OutputData>();
+  const [pageContent, setPageContent] = useState<OutputData>({ "time": 1687344665422, "blocks": [ { "id": "j5X2QTtTgy", "type": "paragraph", "data": { "text": "make this the fact the known to the unknowing about that which is known amongst the known<br>" } } ], "version": "2.27.0" });
 // `_start writing..._`
 
   return (
@@ -63,7 +63,8 @@ export default function ViewPage() {
       </header>
 
       {/* (app page): content */}
-      <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
+      <div className="p-16">{pageContent && <EditorRenderer data={pageContent} />}</div>
+      {/* <EditorBlock data={pageContent} onChange={} holder="editorjs-container" /> */}
       {/* <Editor name="Blink" onChange={handleRead} editorLoaded={true} value={pageContent} /> */}
       {/* <textarea readOnly={true} className="w-full h-full bg-transparent border-none focus:outline-none focus:ring-0 overflow-y-auto scrollbar rounded-b-2xl resize-none"/> */}
       {/*<section className="w-full h-full">

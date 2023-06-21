@@ -14,7 +14,7 @@ import Account from '@/components/Account'
 
 // const inter = Inter({ subsets: ['latin'] })
 
-import { instrumentSans } from '@/styles/fonts'
+import { instrumentSans, poppins, questrial } from '@/styles/fonts'
 
 export const metadata = {
   title: 'Tcitrogg-app',
@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.className} font-sans bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 overflow- `}>
+      <body className={`${questrial.className} font-sans bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 overflow- `}>
 
         {/* (frame) */}
         <section className="w-full h-smscreen md:h-screen md:space-x-2 md:p-2 flex">
