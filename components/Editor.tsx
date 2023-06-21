@@ -1,18 +1,48 @@
 "use client"
 
-import { useCallback, useState } from "react";
+//./components/Editor
+import React, { memo, useEffect, useRef } from "react";
+import EditorJS, { OutputData } from "@editorjs/editorjs";
+import { EDITOR_TOOLS } from "./editorTools";
 
-export default function Editor({ data, editable }: any) {
+//props
+type Props = {
+  data?: OutputData;
+  onChange(val: OutputData): void;
+  holder: string;
+};
 
-  const [pageValue, setPageValue] = useState(data ? data : "...")
+const EditorBlock = ({ data, onChange, holder }: Props) => {
+  //add a reference to editor
+  const ref = useRef<EditorJS>();
 
-  const handleOnChange = useCallback(
-    (pageValue: string) => {
-      setPageValue(pageValue)
-    },[],
-  )
-  
-  return (
-    <div className="">Editor</div>
-  )
-}
+  //initialize editorjs
+  useEffect(() => {
+    //initialize editor if we don't have a reference
+    if (!ref.current) {
+      const editor = new EditorJS({
+        holder: holder,
+        tools: EDITOR_TOOLS,
+        data,
+        async onChange(api, event) {
+          const data = await api.saver.save();
+          // const data = await api.blocks();
+          onChange(data);
+        },
+      });
+      ref.current = editor;
+    }
+
+    //add a return function handle cleanup
+    return () => {
+      if (ref.current && ref.current.destroy) {
+        ref.current.destroy();
+      }
+    };
+  }, []);
+
+
+  return <div id={holder} />;
+};
+
+export default memo(EditorBlock);

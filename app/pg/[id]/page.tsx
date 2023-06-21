@@ -1,19 +1,29 @@
 "use client";
 
 import Editor from "@/components/Editor";
-import Avatar from "boring-avatars"
-import Link from "next/link";
 
+import { useState } from "react";
+// import { useEffect } from "react";
+
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useRouter, useParams } from "next/navigation";
 // import { useRouter, usePathname, useSearchParams } from "next/navigation";
-// import { useEffect } from "react";
+
+import Avatar from "boring-avatars"
+import { OutputData } from "@editorjs/editorjs";
+
+const EditorBlock = dynamic(() => import("@/components/Editor"), {
+  ssr: false,
+});
 
 export default function ViewPage() {
 
   const router = useRouter();
   const params = useParams();
 
-  const pageContent = `_start writing..._`
+  const [pageContent, setPageContent] = useState<OutputData>();
+// `_start writing..._`
 
   return (
 
@@ -53,7 +63,9 @@ export default function ViewPage() {
       </header>
 
       {/* (app page): content */}
-      <textarea value={pageContent} readOnly={true} className="w-full h-full bg-transparent border-none focus:outline-none focus:ring-0 overflow-y-auto scrollbar rounded-b-2xl resize-none"/>
+      <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
+      {/* <Editor name="Blink" onChange={handleRead} editorLoaded={true} value={pageContent} /> */}
+      {/* <textarea readOnly={true} className="w-full h-full bg-transparent border-none focus:outline-none focus:ring-0 overflow-y-auto scrollbar rounded-b-2xl resize-none"/> */}
       {/*<section className="w-full h-full">
         <Editor data={pageContent}/>
       </section>*/}
