@@ -1,18 +1,27 @@
 "use client"
 
-import Editor from "@/components/Editor";
-import Avatar from "boring-avatars"
-import Link from "next/link";
+// import Editor from "@/components/Editor";
 
 import { useState } from "react"
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useRouter, useParams } from "next/navigation";
+
+import Avatar from "boring-avatars"
+import { OutputData } from "@editorjs/editorjs";
+
+const EditorBlock = dynamic(() => import("@/components/Editor"), {
+  ssr: false,
+});
 
 export default function EditPage() {
 
   const router = useRouter();
   const params = useParams();
 
-  const [pageContent, setPageContent] = useState(`_start writing..._`)
+
+  const [pageContent, setPageContent] = useState<OutputData>();
+// `_start writing..._`
 
   const handleOnChange = (pageContent: any) => {
     setPageContent(pageContent.value)
@@ -83,7 +92,8 @@ export default function EditPage() {
       </header>
 
       {/* (app page): content */}
-      <textarea value={pageContent} onChange={handleOnChange} className="w-full h-full bg-transparent border-none overflow-y-auto scrollbar rounded-b-2xl resize-none focus:outline-none focus:ring-1 focus:ring-violet-600"/>
+      <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
+      {/* <textarea value={pageContent} onChange={handleOnChange} className="w-full h-full bg-transparent border-none overflow-y-auto scrollbar rounded-b-2xl resize-none focus:outline-none focus:ring-1 focus:ring-violet-600"/> */}
       {/*<section className="w-full h-full">
         <Editor data={pageContent} editable={true}/>
       </section>*/}
