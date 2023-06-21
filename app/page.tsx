@@ -17,7 +17,7 @@ export default function Home() {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   const handleFilter = ()=>{
-    setIsFilterVisible(!isFilterVisible);
+    setIsFilterVisible(true);
   }
   const disableFilter = ()=>{
     setIsFilterVisible(false);
@@ -35,7 +35,7 @@ export default function Home() {
   }
   
   const dbData = [
-    "t/kagayaki.be-E", "log{book, pose}", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
+    "the path of E", "log{book, pose}", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
   ];
 
   return (
@@ -78,8 +78,10 @@ export default function Home() {
           
           {/* ~ top bar: filter select */}
             {/* <i className="icon icon-ic_fluent_arrow_down_20_regular flex text-xs"></i> */}
-          <div onClick={handleFilter} tabIndex={-1} className="bg-zinc-200 dark:bg-zinc-500/20 hover:bg-zinc-300 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 text-xs flex items-center space-x-1 rounded-full px-2 py-1 hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <p className="">Last opened by me</p>
+          <div tabIndex={-1}>
+            <button onClick={handleFilter} className="bg-zinc-200 dark:bg-zinc-500/20 hover:bg-zinc-300 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 text-xs flex items-center space-x-1 rounded-full px-2 py-1 hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <p className="">Last opened by me</p>
+            </button>
             
             {/* (filter modal): <sm> */}
             <div className={`${isFilterVisible ? "flex" : "hidden"} fixed md:absolute right-0 bottom-0 z-40 h-full w-full md:rounded-2xl bg-transparent/20 dark:bg-transparent/20 md:bg-transparent dark:md:bg-transparent`}>
@@ -89,7 +91,7 @@ export default function Home() {
               {/* (filter modal): <sm body> */}
               <div className={`w-full md:w-60 h-fit z-50 absolute bottom-0 md:right-14 lg:right-24 md:top-3 flex flex-col p-1.5`}>
 
-                <div className="w-full h-full p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-xl text- shadow-lg md:shadow ">
+                <div className="w-full h-full p-2 md:p-1 bg-zinc-100 dark:bg-zinc-800 backdrop-blur-md rounded-2xl text- shadow-lg md:shadow ">
 
                   {/* (modal): <sm> : upper */}
                   <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex md:hidden items-start justify-between space-x-4">
@@ -98,6 +100,10 @@ export default function Home() {
                       <i className="icon icon-ic_fluent_filter_20_regular flex text-xl rounded p-0.5bg-amber-500/5"></i>
                       <p className="text-sm leading-5">Filter</p>
                     </div>
+
+                    <button onClick={disableFilter} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-gray-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+                      <i className="icon icon-ic_fluent_chevron_down_20_regular flex text-lg"></i>
+                    </button>
                   </div>
 
                   {/* (filter modal): <sm> : lower */}
@@ -121,16 +127,16 @@ export default function Home() {
           <div className="flex items-center space-x-2">
 
             {/* ~ top bar: search btn */}
-            <button title="Search" className="p-1 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <button title="Search" className="p-1.5 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
               <i className="icon icon-ic_fluent_search_20_regular flex text-lg"></i>
             </button>
             
             {/* ~ top bar: view btn */}
-            <button onClick={handleViewGrid} className="p-1 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <button onClick={handleViewGrid} className="p-1.5 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
               {
                 isViewGrid
-                  ? <i className={`relative icon icon-ic_fluent_group_list_20_regular flex text-lg rounded-full p-0.5 transition-all ease-in-out`}></i>
-                  : <i className={`relative icon icon-ic_fluent_grid_20_regular flex text-lg rounded-full p-0.5 transition-all ease-in-out`}></i>
+                  ? <i className={`relative icon icon-ic_fluent_group_list_20_regular flex text-lg rounded-full transition-all ease-in-out`}></i>
+                  : <i className={`relative icon icon-ic_fluent_grid_20_regular flex text-lg rounded-full transition-all ease-in-out`}></i>
               }
             </button>
           </div>

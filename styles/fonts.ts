@@ -10,10 +10,18 @@ import localFont from 'next/font/local'
 // const sourceCodePro700 = Source_Sans_Pro({ weight: '700' })
 
 // define a custom local font where GreatVibes-Regular.ttf is stored in the styles folder
-const instrumentSans = localFont({ src: 'InstrumentSans-VariableFont-wdth-wght.ttf' })
-const poppins = localFont({ src: 'Poppins-Regular.ttf' })
-const questrial = localFont({ src: 'Questrial-Regular.ttf' })
+const cavolini = localFont({ src: 'fonts/CAVOLINI.ttf' })
+const didactGothic = localFont({ src: 'fonts/DidactGothic-Regular.ttf' })
+const instrumentSans = localFont({ src: 'fonts/InstrumentSans-VariableFont-wdth-wght.ttf' })
+const monaco = localFont({ src: 'fonts/Monaco.ttf' })
+const poppins = localFont({ src: 'fonts/Poppins-Regular.ttf' })
+const questrial = localFont({ src: 'fonts/Questrial-Regular.ttf' })
+const sfProDisplay = localFont({ src: 'fonts/SFPRODISPLAYREGULAR.otf' })
+const trialByCupcakes = localFont({ src: 'fonts/Trial by Cupcakes - Quickpen.otf' })
  
 // export { inter, lora, sourceCodePro400, sourceCodePro700, greatVibes }
  
-export { instrumentSans, poppins, questrial }
+export {
+  cavolini, didactGothic, instrumentSans, monaco,
+  poppins, questrial, sfProDisplay, trialByCupcakes
+}

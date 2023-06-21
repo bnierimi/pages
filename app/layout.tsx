@@ -14,7 +14,7 @@ import Account from '@/components/Account'
 
 // const inter = Inter({ subsets: ['latin'] })
 
-import { instrumentSans, poppins, questrial } from '@/styles/fonts'
+import { cavolini, didactGothic, instrumentSans, monaco, poppins, questrial, sfProDisplay, trialByCupcakes } from '@/styles/fonts'
 
 export const metadata = {
   title: 'Tcitrogg-app',
@@ -28,13 +28,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} font-sans bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 overflow- `}>
+      <body className={`${sfProDisplay.className} font-sans bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 overflow- `}>
 
         {/* (frame) */}
         <section className="w-full h-smscreen md:h-screen md:space-x-2 md:p-2 flex">
 
           {/* (frame): left aside */}
-          <aside className="lg:w-3/12 md:w-5/12 h-full hidden md:flex flex-col rounded-xl space-y-2">
+          <aside className="lg:w-3/12 md:w-4/12 h-full hidden md:flex flex-col rounded-xl space-y-2">
 
             {/* ~ aside: header */}
             <header className="w-full relative bg-zinc-200 dark:bg-zinc-500/20 py-1.5 pr-1.5 pl-4 flex items-center justify-between rounded-full">
@@ -100,7 +100,7 @@ export default function RootLayout({
           </aside>
 
           {/* (frame): body holder */}
-          <div className="w-full lg:w-9/12 md:w-7/12 h-full md:bg-zinc-200 dark:md:bg-zinc-500/20 rounded-2xl">
+          <div className="w-full lg:w-9/12 md:w-8/12 h-full md:bg-zinc-200 dark:md:bg-zinc-500/20 rounded-2xl">
             {children}
           </div>
 
