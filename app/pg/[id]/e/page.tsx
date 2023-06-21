@@ -55,7 +55,7 @@ export default function EditPage() {
               />
             </div>
           </button>
-          <div title="Edit page" className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 md:flex hidden items-center mr-1.5">
+          <div className="p-1 relative rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 md:flex hidden items-center mr-1.5">
             
             {/* ~ go back home link: icon */}
             <i className="icon icon-ic_fluent_edit_20_regular text-xl opacity- dark:text-amber-500 flex"></i>
