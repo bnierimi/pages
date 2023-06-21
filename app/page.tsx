@@ -35,7 +35,7 @@ export default function Home() {
   }
   
   const dbData = [
-    "the path of E", "log{book, pose}", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
+    "the path of E", "my logbook", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
   ];
 
   return (
@@ -143,7 +143,7 @@ export default function Home() {
         </div>
         
         {/* ~ list of pages: display pages */}
-        <ul className={`h-full w-full pb-10 py-1 space-y-1`}>
+        <ul className={`h- w-full pb-10 py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
           {
             dbData.map((eachData, key):any => <li key={key} className="w-full">
               <RowViewBtn data={{id: key, title: eachData}} isViewGrid={isViewGrid}/>
