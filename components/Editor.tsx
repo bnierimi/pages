@@ -42,7 +42,7 @@ const EditorBlock = ({ data, onChange, holder }: Props) => {
   }, []);
 
 
-  return <div id={holder} />;
+  return <div className="h-full" id={holder} />;
 };
 
 export default memo(EditorBlock);

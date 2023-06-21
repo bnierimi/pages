@@ -20,7 +20,7 @@ export default function EditPage() {
   const params = useParams();
 
 
-  const [pageContent, setPageContent] = useState<OutputData>({ "time": 1687344665422, "blocks": [ { "id": "j5X2QTtTgy", "type": "paragraph", "data": { "text": "make this the fact the known to the unknowing about that which is known amongst the known<br>" } } ], "version": "2.27.0" });
+  const [pageContent, setPageContent] = useState<OutputData>(JSON.parse(`{ "time": 1687344665422, "blocks": [ { "id": "j5X2QTtTgy", "type": "paragraph", "data": { "text": "make this the fact the known to the unknowing about that which is known amongst the known<br>" } } ], "version": "2.27.0" }`));
 // `_start writing..._`
 
   const handleOnChange = (pageContent: any) => {
@@ -92,17 +92,15 @@ export default function EditPage() {
       </header>
 
       {/* (app page): content */}
-      <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
-      {/* <textarea value={pageContent} onChange={handleOnChange} className="w-full h-full bg-transparent border-none overflow-y-auto scrollbar rounded-b-2xl resize-none focus:outline-none focus:ring-1 focus:ring-violet-600"/> */}
-      <section className="w-full h-full">
-        {/* <Editor data={pageContent} editable={true}/> */}
-        <div className="">
+      <section className="w-full h-full overflow-y-auto scrollbar px-4 md:px-0">
+        <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
+        {/* <div className="">
           {`${JSON.stringify(pageContent, null, " ")}`}
-        </div>
+        </div> */}
       </section>
 
       {/* (app page): edit page btn */}
-      <button onClick={handleSubmit} title="Save page" className="flex p-2 fixed bottom-3 right-3 md:bottom-7 md:right-20 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg transition-all ease-in-out">
+      <button onClick={handleSubmit} title="Save page" className="flex p-2 fixed z-40 bottom-3 right-3 md:bottom-7 md:right-20 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg transition-all ease-in-out">
         <i className="icon icon-ic_fluent_checkmark_20_filled flex text-2xl"></i>
       </button>
     </main>

@@ -21,8 +21,8 @@ export default function MoreAppsApps() {
 
   return(
     <>
-      <div onClick={handleMoreApps} tabIndex={-1} title='More apps' className="rounded-full p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
-        <i className="icon icon-ic_fluent_grid_dots_20_filled flex text-2xl"></i>
+      <div onClick={handleMoreApps} tabIndex={-1} title='More apps' className="rounded-full md:p-1 lg:p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+        <i className="icon icon-ic_fluent_grid_dots_20_filled flex md:text-xl lg:text-2xl"></i>
       </div>
       
         {/* (modal): <sm> */}

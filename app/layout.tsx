@@ -45,8 +45,12 @@ export default function RootLayout({
                   <p className="opacity-50">Tcitrogg</p>
                 </div>
                 <span className="p-0.5 rounded-full bg-zinc-500 dark:bg-zinc-400"></span>
-                <span className="">Pages</span>
+                <span className="font-semibold">Pages</span>
               </h1>
+              
+              <div className="md:block lg:hidden">
+                <MoreAppsApps/>
+              </div>
             </header>
 
             {/* ~ aside: board */}
@@ -102,7 +106,7 @@ export default function RootLayout({
 
           {/* (frame): right aside */}
           {/* right aside might by sandwiched into the left aside */}
-          <div className="h-full hidden md:block md:py-10">
+          <div className="h-full hidden lg:block md:py-10">
             <div className="h-full w-full md:flex flex-col items-center justify-between rounded-full bg-zinc-200 dark:bg-zinc-500/20 p-1">
             <section className="">
               <MoreAppsApps/>

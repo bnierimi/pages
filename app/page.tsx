@@ -53,12 +53,13 @@ export default function Home() {
           </button>
 
           {/* ~ header: title */}
-          <h1 className="text-xl font-medium flex items-center space-x-2 bg-transparent/10 dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
+          <h1 className="text-xl font-semibold flex items-center space-x-2 bg-transparent/10 dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
             <div className="overflow-hidden rounded-full">
               <Avatar
                 size={27}
                 name="Pages"
                 variant="bauhaus"
+                colors={["#663399", "#ffaa00"]}
               />
             </div>
             <span className="">Pages</span>
@@ -80,34 +81,37 @@ export default function Home() {
             <p className="">Last opened by me</p>
             
             {/* (filter modal): <sm> */}
-            <div className={`${isFilterVisible ? "flex" : "hidden"} fixed md:absolute right-0 bottom-0 z-40 h-full w-full md:rounded-2xl bg-transparent/5 dark:bg-transparent/10`}>
+            <div className={`${isFilterVisible ? "flex" : "hidden"} fixed md:absolute right-0 bottom-0 z-40 h-full w-full md:rounded-2xl bg-transparent/20 dark:bg-transparent/20 md:bg-transparent dark:md:bg-transparent`}>
               {/* (filter modal): overlay */}
               <div onClick={disableFilter} className="absolute w-full h-full md:rounded-2xl"></div>
               
-              {/* (filter modal): <sm> */}
-              <div className={`w-full md:w-60 h-fit z-50 absolute bottom-0 md:top-14 md:left-20 flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-t-xl md:rounded-xl text- shadow-lg md:shadow`}>
+              {/* (filter modal): <sm body> */}
+              <div className={`w-full md:w-60 h-fit z-50 absolute bottom-0 md:right-14 lg:right-24 md:top-3 flex flex-col p-1.5`}>
 
-                {/* (modal): <sm> : upper */}
-                <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex md:hidden items-start justify-between space-x-4">
-                  {/* <!-- <p className="font-semibold">Modal 1</p> --> */}
-                  <div className="w-full flex items-center space-x-2">
-                    <i className="icon icon-ic_fluent_filter_20_regular flex text-xl rounded p-0.5bg-amber-500/5"></i>
-                    <p className="text-sm leading-5">Filter</p>
+                <div className="w-full h-full p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-xl text- shadow-lg md:shadow ">
+
+                  {/* (modal): <sm> : upper */}
+                  <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex md:hidden items-start justify-between space-x-4">
+                    {/* <!-- <p className="font-semibold">Modal 1</p> --> */}
+                    <div className="w-full flex items-center space-x-2">
+                      <i className="icon icon-ic_fluent_filter_20_regular flex text-xl rounded p-0.5bg-amber-500/5"></i>
+                      <p className="text-sm leading-5">Filter</p>
+                    </div>
                   </div>
-                </div>
 
-                {/* (filter modal): <sm> : lower */}
-                <div className="w-full pt-2 md:pt-0 space-y-3">
-                  <section className="w-full flex flex-col space-y-1 ">
-                    <button className="w-full flex items-center space-x-2 p-2 hover:bg-gray-300 dark:hover:bg-gray-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
-                      <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
-                      <p className="font-medium">Last opened</p>
-                    </button>
-                    <button className="w-full flex items-center space-x-2 p-2 hover:bg-gray-300 dark:hover:bg-gray-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
-                      <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
-                      <p className="font-medium">Last created</p>
-                    </button>
-                  </section>
+                  {/* (filter modal): <sm> : lower */}
+                  <div className="w-full pt-2 md:pt-0 space-y-3">
+                    <section className="w-full flex flex-col space-y-1 ">
+                      <button className="w-full flex items-center space-x-2 p-2 hover:bg-gray-300 dark:hover:bg-gray-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
+                        <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
+                        <p className="font-medium">Last opened</p>
+                      </button>
+                      <button className="w-full flex items-center space-x-2 p-2 hover:bg-gray-300 dark:hover:bg-gray-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
+                        <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
+                        <p className="font-medium">Last created</p>
+                      </button>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
@@ -153,7 +157,7 @@ export default function Home() {
     <div className={`${isDrawerVisible ? "flex" : "hidden"} absolute top-0 z-50 w-full h-full`}>
 
       {/* (drawer): overlay */}
-      <div onClick={disableDrawerVisible} className="w-full h-full absolute bg-transparent/10 dark:bg-transparent/20"></div>
+      <div onClick={disableDrawerVisible} className="w-full h-full absolute bg-transparent/20 dark:bg-transparent/20"></div>
 
       {/* (drawer): drawer */}
       <div id="menuDrawer" className={`fixed top-0 left-full z-50 h-mobileScreenmd: h-screen py-4 overflow-y-auto transition-transform -translate-x-full w-11/12 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md flex flex-col space-y-6 shadow-lg`}>
@@ -176,7 +180,7 @@ export default function Home() {
             
             {/* (drawer): upper */}
             <section className="space-y-4 px-4">
-              <section className="w-full space-y-1">
+              <section className="w-full space-y-1 pt-1">
                 <Link href={"/archive"} className="w-full flex items-center space-x-2 p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
                   <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
                   <p className="font-medium">Archive</p>
