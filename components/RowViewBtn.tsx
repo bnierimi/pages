@@ -21,11 +21,11 @@ export default function RowViewBtn({ data }: any) {
 
       {/* (view row's btn): link to page */}
       <Link href={`/pg/${data.id}`} className={`w-full py-2.5 flex focus:outline-none focus:ring-0`}>
-        <div className={`w-full flex items-start space-x-2.5`}>
+        <div className={`w-full flex items-center space-x-2.5`}>
 
           {/* ~ link to page: icon */}
           <div className="flex">
-            <i className={`icon icon-ic_fluent_text_align_left_20_regular flex text-xl text-zinc-700 bg-amber-500 rounded p-1`}></i>
+            <i className={`icon icon-ic_fluent_text_align_left_20_regular flex text-xl md:text-2xl text-zinc-700 bg-amber-500 rounded p-1`}></i>
           </div>
 
           {/* ~ link to page: info */}

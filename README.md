@@ -18,12 +18,12 @@
 
 - more btn: rowbtn
     -[x] `/`
-    -[ ] `archive`
-    -[ ] `bin`
+    -[%] `archive`
+    -[%] `bin`
 
--[ ] page's more
-  -[ ] read
-  -[ ] edit
+-[%] page's more
+  -[%] read
+  -[%] edit
 
 - modal
   -[?] are you sure?

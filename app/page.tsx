@@ -8,6 +8,7 @@ import RowViewBtn from "@/components/RowViewBtn";
 import ThemeBtn from "@/components/ThemeBtn";
 
 import { useState } from "react";
+import MoreApps from "@/components/MoreApps";
 
 export default function Home() {
 
@@ -59,7 +60,7 @@ export default function Home() {
                 size={27}
                 name="Pages"
                 variant="bauhaus"
-                colors={["#663399", "#ffaa00"]}
+                colors={["#f59e0b", "#1a1a1a", "#663399"]}
               />
             </div>
             <span className="">Pages</span>
@@ -126,11 +127,10 @@ export default function Home() {
             
             {/* ~ top bar: view btn */}
             <button onClick={handleViewGrid} className="p-1 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-              <i className="icon icon- flex text-lg"></i>
               {
                 isViewGrid
-                  ? <i className={`relative icon icon-ic_fluent_group_list_20_regular flex text-xl rounded-full p-0.5 transition-all ease-in-out`}></i>
-                  : <i className={`relative icon icon-ic_fluent_grid_20_regular flex text-xl rounded-full p-0.5 transition-all ease-in-out`}></i>
+                  ? <i className={`relative icon icon-ic_fluent_group_list_20_regular flex text-lg rounded-full p-0.5 transition-all ease-in-out`}></i>
+                  : <i className={`relative icon icon-ic_fluent_grid_20_regular flex text-lg rounded-full p-0.5 transition-all ease-in-out`}></i>
               }
             </button>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
         <ul className={`h-full w-full pb-10 py-1 space-y-1`}>
           {
             dbData.map((eachData, key):any => <li key={key} className="w-full">
-              <RowViewBtn data={{id: key, title: eachData}}/>
+              <RowViewBtn data={{id: key, title: eachData}} isViewGrid={isViewGrid}/>
             </li>)
           }
         </ul>
@@ -189,6 +189,7 @@ export default function Home() {
                   <i className="icon icon-ic_fluent_delete_20_regular flex text-xl"></i>
                   <p className="font-medium">Bin</p>
                 </Link>
+                <MoreApps isLong={true}/>
               </section>
             </section>
 

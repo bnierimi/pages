@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Avatar from "boring-avatars";
 
-export default function MoreAppsApps() {
+export default function MoreApps({ isLong }: any) {
   const [isMoreAppsVisible, setIsMoreAppsVisible] = useState(false);
 
   const handleMoreApps = ()=>{
@@ -21,9 +21,17 @@ export default function MoreAppsApps() {
 
   return(
     <>
-      <div onClick={handleMoreApps} tabIndex={-1} title='More apps' className="rounded-full md:p-1 lg:p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
-        <i className="icon icon-ic_fluent_grid_dots_20_filled flex md:text-xl lg:text-2xl"></i>
-      </div>
+
+      {
+        isLong
+          ? <div onClick={handleMoreApps} tabIndex={0} title='More apps' className="w-full flex items-center space-x-2 p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 rounded-xl hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <i className="icon icon-ic_fluent_grid_dots_20_filled flex text-xl"></i>
+            <p className="font-medium">More apps</p>
+          </div>
+          : <div onClick={handleMoreApps} tabIndex={0} title='More apps' className="rounded-full md:p-1 lg:p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <i className="icon icon-ic_fluent_grid_dots_20_filled flex md:text-xl lg:text-2xl"></i>
+          </div>
+      }
       
         {/* (modal): <sm> */}
       <div className={`${isMoreAppsVisible ? "flex" : "hidden"} w-fit h-fit z-50 absolute right-10 top-auto flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-tl-xl md:rounded-b-xl text- shadow-lg md:shadow`}>

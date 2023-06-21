@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 import Avatar from 'boring-avatars'
 import ThemeBtn from '@/components/ThemeBtn'
-import MoreAppsApps from '@/components/MoreApps'
+import MoreApps from '@/components/MoreApps'
 import Account from '@/components/Account'
 // import { Inter } from 'next/font/google'
 
@@ -34,7 +34,7 @@ export default function RootLayout({
         <section className="w-full h-smscreen md:h-screen md:space-x-2 md:p-2 flex">
 
           {/* (frame): left aside */}
-          <aside className="lg:w-3/12 md:w-4/12 h-full hidden md:flex flex-col rounded-xl space-y-2">
+          <aside className="lg:w-3/12 md:w-5/12 h-full hidden md:flex flex-col rounded-xl space-y-2">
 
             {/* ~ aside: header */}
             <header className="w-full relative bg-zinc-200 dark:bg-zinc-500/20 py-1.5 pr-1.5 pl-4 flex items-center justify-between rounded-full">
@@ -49,7 +49,7 @@ export default function RootLayout({
               </h1>
               
               <div className="md:block lg:hidden">
-                <MoreAppsApps/>
+                <MoreApps/>
               </div>
             </header>
 
@@ -100,7 +100,7 @@ export default function RootLayout({
           </aside>
 
           {/* (frame): body holder */}
-          <div className="w-full lg:w-9/12 md:w-8/12 h-full md:bg-zinc-200 dark:md:bg-zinc-500/20 rounded-2xl">
+          <div className="w-full lg:w-9/12 md:w-7/12 h-full md:bg-zinc-200 dark:md:bg-zinc-500/20 rounded-2xl">
             {children}
           </div>
 
@@ -109,7 +109,7 @@ export default function RootLayout({
           <div className="h-full hidden lg:block md:py-10">
             <div className="h-full w-full md:flex flex-col items-center justify-between rounded-full bg-zinc-200 dark:bg-zinc-500/20 p-1">
             <section className="">
-              <MoreAppsApps/>
+              <MoreApps/>
             </section>
 
             <section className="">

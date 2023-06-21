@@ -2,9 +2,9 @@ export default function NewPage() {
   return (
 
     // (app page)
-    <main className="h-mobileScreen md:h-full w-full md:w-5/12 px-4 md:mx-auto relative flex flex-col items-center justify-center space-y-4 overflow-y-auto">
+    <main className="h-screen md:h-full w-full md:w-5/12 px-4 md:mx-auto relative flex  items-center justify-center space-y-4 overflow-y-auto">
       
-      <section className="w-full border border-zinc-300 dark:border-zinc-500/40 rounded-2xl space-y-4">
+      <section className="w-full h- border border-zinc-300 dark:border-zinc-500/40 rounded-2xl space-y-4">
         
         {/* (app page): title */}
         <div className="space-x-2 flex items-center bg-amber-500 text-zinc-700 dark py-3 px-4 rounded-t-2xl">

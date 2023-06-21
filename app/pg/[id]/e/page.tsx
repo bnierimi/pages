@@ -37,14 +37,28 @@ export default function EditPage() {
     <main className="h-mobileScreen md:h-full w-full relative flex flex-col space-y-1">
 
       {/* (app page): header */}
-      <header className="w-full bg-zinc-300 text-zinc-700 py-2 px-2 flex items-center justify-between md:rounded-t-2xl">
-        <div className="flex items-center space-x-1.5">
+      <header className="w-full bg-zinc-200 dark:bg-zinc-500/20 py-2 px-2 flex items-center justify-between md:rounded-t-2xl">
+        <div className="flex items-center">
           
           {/* ~ header: go back home link */}
-          <div className="p-1 relative hover:bg-transparent/10dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 flex items-center">
+          <button onClick={handleSubmit} title="Save page" className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 flex md:hidden items-center mr-1.5">
             
             {/* ~ go back home link: icon */}
-            <i className="icon icon-ic_fluent_edit_20_filled flex text-xl opacity-30"></i>
+            <i className="icon icon-ic_fluent_checkmark_20_filled flex text-xl opacity- dark:text-amber-500"></i>
+
+            {/* ~ go back home link: page avatar */}
+            <div className="overflow-hidden rounded-full">
+              <Avatar
+                size={27}
+                name={`${params.id}`}
+                variant="bauhaus"
+              />
+            </div>
+          </button>
+          <div title="Edit page" className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 md:flex hidden items-center mr-1.5">
+            
+            {/* ~ go back home link: icon */}
+            <i className="icon icon-ic_fluent_edit_20_regular text-xl opacity- dark:text-amber-500 flex"></i>
 
             {/* ~ go back home link: page avatar */}
             <div className="overflow-hidden rounded-full">
@@ -57,14 +71,14 @@ export default function EditPage() {
           </div>
 
           {/* ~ header: page title */}
-          <h1 className="text-xl font-semibold flex items-center bg-transparent/10dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
-            <span className="">Page {`${params.id}`}</span>
+          <h1 contentEditable className="text-lg font-semibold flex items-center bg-transparent/10dark:bg-zinc-500/20 pl-1 pr-3 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2">
+            Page {`${params.id}`}
           </h1>
         </div>
 
         {/* ~ header: more btn */}
         <button id="eachViewRowMore-btn" title="More" className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-xl"></i>
+          <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-xl"></i>
         </button>
       </header>
       <header className="hidden w-full bg-zinc-300 text-zinc-700 py-2 px-2 flex items-center justify-between md:rounded-t-2xl">
@@ -92,7 +106,7 @@ export default function EditPage() {
       </header>
 
       {/* (app page): content */}
-      <section className="w-full h-full overflow-y-auto scrollbar px-4 md:px-0">
+      <section className="w-full h-full overflow-y-auto scrollbar px-4 lg:px-0">
         <EditorBlock data={pageContent} onChange={setPageContent} holder="editorjs-container" />
         {/* <div className="">
           {`${JSON.stringify(pageContent, null, " ")}`}
@@ -100,7 +114,7 @@ export default function EditPage() {
       </section>
 
       {/* (app page): edit page btn */}
-      <button onClick={handleSubmit} title="Save page" className="flex p-2 fixed z-40 bottom-3 right-3 md:bottom-7 md:right-20 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg transition-all ease-in-out">
+      <button onClick={handleSubmit} title="Save page" className="hidden md:flex p-2 fixed z-40 bottom-3 right-3 md:bottom-7 md:right-20 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg transition-all ease-in-out">
         <i className="icon icon-ic_fluent_checkmark_20_filled flex text-2xl"></i>
       </button>
     </main>
