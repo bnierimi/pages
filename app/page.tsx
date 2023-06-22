@@ -3,6 +3,8 @@
 // import Image from 'next/image';
 import Link from "next/link";
 import Avatar from "boring-avatars";
+import axios from "axios";
+// import ShortUniqueId from "short-unique-id";
 
 import RowViewBtn from "@/components/RowViewBtn";
 import ThemeBtn from "@/components/ThemeBtn";
@@ -11,11 +13,17 @@ import { useState } from "react";
 import MoreApps from "@/components/MoreApps";
 
 export default function Home() {
+  
+  
+  // const createSurl = (length: number = 9)=>{
+  //   const uid = new ShortUniqueId({ length });
+  //   return uid();
+  // }
 
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [isViewGrid, setIsViewGrid] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
-
+  
   const handleFilter = ()=>{
     setIsFilterVisible(true);
   }
@@ -33,6 +41,8 @@ export default function Home() {
   const disableDrawerVisible = ()=>{
     setIsDrawerVisible(false);
   }
+
+  // const data = axios.get("/api/pages")
   
   const dbData = [
     "the path of E", "my logbook", "grandline", "Contract code sample", "henjin", "reishi", "night owl",

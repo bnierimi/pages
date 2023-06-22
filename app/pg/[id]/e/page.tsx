@@ -9,6 +9,7 @@ import { useRouter, useParams } from "next/navigation";
 
 import Avatar from "boring-avatars"
 import { OutputData } from "@editorjs/editorjs";
+import axios from "axios";
 
 const EditorBlock = dynamic(() => import("@/components/Editor"), {
   ssr: false,
@@ -27,7 +28,12 @@ export default function EditPage() {
     setPageContent(pageContent.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async ({id, content}: any) => {
+    const { data } = await axios.post("/api/posts", {
+      id,
+      content
+    })
+    console.log(data)
     router.back()
   }
 

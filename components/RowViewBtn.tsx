@@ -36,7 +36,7 @@ export default function RowViewBtn({ data, isViewGrid }: any) {
 
             {/* ~ link to page: info */}
             <div className={`relative flex flex-col ${isViewGrid ? " w-8/12 md:w-11/12" : "w-8/12 md:w-5/12"} `}>
-              <p className={`font-medium w-full text-ellipsis overflow-hidden whitespace-nowrap`}>{data.title}</p>
+              <p className={`font-medium w-full text-ellipsis overflow-hidden whitespace-nowrap`}>{data.title} {data.surl}</p>
               <time className="text-xs opacity-70">0{data.id}:26, June {data.id * 2 + 1} 2023</time>
             </div>
           </div>
