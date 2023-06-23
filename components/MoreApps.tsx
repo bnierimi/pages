@@ -34,7 +34,7 @@ export default function MoreApps({ isLong }: any) {
       }
       
         {/* (modal): <sm> */}
-      <div className={`${isMoreAppsVisible ? "flex" : "hidden"} w-fit h-fit z-50 absolute right-10 top-auto flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-tl-xl md:rounded-b-xl text- shadow-lg md:shadow`}>
+      <div className={`${isMoreAppsVisible ? "flex" : "hidden"} w-fit h-fit z-50 absolute right-10 md:right-auto lg:right-10 top-auto flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-xl md:rounded-tr-xl md:rounded-b-xl lg:rounded-tr-none lg:rounded-tl-xl lg:rounded-b-xl text- shadow-lg md:shadow`}>
 
         {/* (modal): <sm> : upper */}
         <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex items-start justify-between space-x-4">

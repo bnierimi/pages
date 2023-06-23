@@ -49,7 +49,13 @@ export default function RootLayout({
               </h1>
               
               <div className="md:block lg:hidden">
-                <MoreApps/>
+                <button title='Account' className="flex rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+                  <Avatar
+                    size={25}
+                    name={`shisho`}
+                    variant="bauhaus"
+                  />
+                </button>
               </div>
             </header>
 
@@ -82,6 +88,9 @@ export default function RootLayout({
                     <i className="icon icon-ic_fluent_delete_20_regular flex text-xl"></i>
                     <p className="font-medium">Bin</p>
                   </Link>
+                  <div className="w-full md:block lg:hidden">
+                    <MoreApps isLong={true}/>
+                  </div>
                 </section>
               </div>
               

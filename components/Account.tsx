@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Avatar from "boring-avatars";
 
-export default function Account() {
+export default function Account({ size }: any) {
   const [isAccountVisible, setIsAccountVisible] = useState(false);
 
   const handleAccount = ()=>{
@@ -21,13 +21,13 @@ export default function Account() {
 
   return(
     <>
-      <div onClick={handleAccount} tabIndex={-1} title='Account' className="rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+      <button title='Account' className="flex rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
         <Avatar
-          size={30}
+          size={size ? size : 30}
           name={`shisho`}
           variant="bauhaus"
         />
-      </div>
+      </button>
       
         {/* (modal): <sm> */}
       <div className={`${isAccountVisible ? "flex" : "hidden"} w-fit h-fit z-50 absolute right-10 bottom-24 flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-bl-xl md:rounded-t-xl text- shadow-lg md:shadow`}>

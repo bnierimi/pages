@@ -47,7 +47,7 @@ export default function ViewPage() {
           <button onClick={() => router.back()} title="Home" className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 flex items-center">
             
             {/* ~ go back home link: icon */}
-            <i className="icon icon-ic_fluent_chevron_left_20_filled flex text-xl"></i>
+            <i className="icon icon-ic_fluent_chevron_left_20_filled flex text-2xl"></i>
 
             {/* ~ go back home link: page avatar */}
             <div className="overflow-hidden rounded-full">
@@ -60,15 +60,21 @@ export default function ViewPage() {
           </button>
 
           {/* ~ header: page title */}
-          <h1 className="text-lg font-semibold flex items-center bg-transparent/10dark:bg-zinc-500/20 pl-1 pr-3 rounded-full">
+          <h1 className="text-lg font-medium flex items-center bg-transparent/10dark:bg-zinc-500/20 pl-1 pr-3 rounded-full">
             Page {`${params.id}`}
           </h1>
         </div>
 
-        {/* ~ header: more btn */}
-        <div tabIndex={0}>
+        <div className="flex items-center">
+          
+          {/* ~ header: comments */}
+          <button title="Comments" className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <i className="icon icon-ic_fluent_chat_20_regular flex text-2xl"></i>
+          </button>
+
+          {/* ~ header: more btn */}
           <button onClick={handleMore} className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-xl"></i>
+            <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-2xl"></i>
           </button>
           
           {/* (modal): <sm> */}

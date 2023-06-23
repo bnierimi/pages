@@ -11,6 +11,7 @@ import ThemeBtn from "@/components/ThemeBtn";
 
 import { useState } from "react";
 import MoreApps from "@/components/MoreApps";
+import Account from "@/components/Account";
 
 export default function Home() {
   
@@ -45,7 +46,8 @@ export default function Home() {
   // const data = axios.get("/api/pages")
   
   const dbData = [
-    "the path of E", "my logbook", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
+    "the path of E", "my logbook", "don't give up on me", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
+    "note-lang"
   ];
 
   return (
@@ -54,34 +56,38 @@ export default function Home() {
     {/* (app) */}
     <main className="h-mobileScreen md:h-full w-full relative flex flex-col md:space-y-4">
       
-      {/* (app): header */}
-      <header className="w-full relative bg-zinc-200dark:bg-zinc-500/10 pt-2 pb-1 px-2 flex md:hidden items-center justify-between rounded-b-2xl">
-        <div className="flex items-center space-x-4">
-          
-          {/* ~ header: menu drawer's btn */}
-          <button onClick={handleDrawerVisible} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <i className="icon icon-ic_fluent_navigation_20_regular flex text-lg"></i>
-          </button>
+      {/* (app): header holder */}
+      <div className="w-full fixed z-50 top-0 px-4py-2">
+        
+        {/* (app): header */}
+        <header className="w-full relative bg-zinc-200 /70 dark:bg-zinc-800/80 backdrop-blur-md py-2 px-2 flex md:hidden items-center justify-between rounded-ful">
+          <div className="flex items-center space-x-4">
+            
+            {/* ~ header: menu drawer's btn */}
+            <button onClick={handleDrawerVisible} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <i className="icon icon-ic_fluent_navigation_20_regular flex text-lg"></i>
+            </button>
 
-          {/* ~ header: title */}
-          <h1 className="text-xl font-semibold flex items-center space-x-2 bg-transparent/10 dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
-            <div className="overflow-hidden rounded-full">
-              <Avatar
-                size={27}
-                name="Pages"
-                variant="bauhaus"
-                colors={["#f59e0b", "#1a1a1a", "#663399"]}
-              />
-            </div>
-            <span className="">Pages</span>
-          </h1>
-        </div>
+            {/* ~ header: title */}
+            <h1 className="text-xl font-medium flex items-center space-x-2 bg-transparent/10dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
+              <div className="overflow-hidden rounded-full">
+                <Avatar
+                  size={27}
+                  name="Pages"
+                  variant="bauhaus"
+                  colors={["#f59e0b", "#1a1a1a", "#663399"]}
+                />
+              </div>
+              <span className="">Pages</span>
+            </h1>
+          </div>
 
-        <div className="flex items-center space-x-2"></div>
-      </header>
+          <div className="flex items-center space-x-2"></div>
+        </header>
+      </div>
       
       {/* (app): list of pages */}
-      <section className="w-full h-full overflow-y-auto scrollbar">
+      <section className="w-full h-full pb-20 md:pb-10 pt-16 md:pt-0 relative overflow-y-auto scrollbar">
         
         {/* ~ list of pages: top bar */}
 		    <div className="w-full flex items-center justify-between px-4 md:px-10 lg:px-20 py-1">
@@ -153,7 +159,7 @@ export default function Home() {
         </div>
         
         {/* ~ list of pages: display pages */}
-        <ul className={`h- w-full pb-10 py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
+        <ul className={`h- w-full py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
           {
             dbData.map((eachData, key):any => <li key={key} className="w-full">
               <RowViewBtn data={{id: key, title: eachData}} isViewGrid={isViewGrid}/>
@@ -163,10 +169,36 @@ export default function Home() {
         
       </section>
 
-      {/* (app): <sm> create new page btn */}
-      <Link href="/pg/new" title="New page" className="flex md:hidden p-2 fixed bottom-3 right-3 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg">
-        <i className="icon icon-ic_fluent_add_20_filled flex text-2xl"></i>
-      </Link>
+
+      {/* (app): footer */}
+      <div className="w-full fixed bottom-0 flex md:hidden rounded-txl bg-zinc-100 /50 dark:bg-zinc-900/80 backdrop-blur-lg">
+        
+        {/* ~ footer: btns */}
+        <div className="w-full flex items-center space-x-4 px-4">
+          <div className="rounded-full bg-zinc-200 dark:bg-zinc-800">
+            <button title='Account' className="flex rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <Avatar
+                size={25}
+                name={`shisho`}
+                variant="bauhaus"
+              />
+            </button>
+          </div>
+          <div className="w-full flex items-center space-x-3 bg-zinc-200 dark:bg-zinc-800 px-4 py-2 rounded-t-2xl">
+            <button title="Library" className="p-1.5 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <i className="icon icon-ic_fluent_library_20_regular flex text-lg"></i>
+            </button>
+            <button title="Bookmark" className="p-1.5 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <i className="icon icon-ic_fluent_bookmark_20_regular flex text-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        {/* (app): <sm> create new page btn */}
+        <Link href="/pg/new" title="New page" className="p-2 absolute bottom-5 right-10 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full ring-4 ring-zinc-100 dark:ring-zinc-900 focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg">
+          <i className="icon icon-ic_fluent_add_20_filled flex text-2xl"></i>
+        </Link>
+      </div>
     </main>
 
     {/* <sm> (drawer): holder */}
@@ -176,13 +208,13 @@ export default function Home() {
       <div onClick={disableDrawerVisible} className="w-full h-full absolute bg-transparent/20 dark:bg-transparent/20"></div>
 
       {/* (drawer): drawer */}
-      <div id="menuDrawer" className={`fixed top-0 left-full z-50 h-mobileScreenmd: h-screen py-4 overflow-y-auto transition-transform -translate-x-full w-11/12 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md flex flex-col space-y-6 shadow-lg`}>
+      <div id="menuDrawer" className={`fixed top-0 left-full z-50 h-mobileScreenmd: h-screen py-4 px-2 overflow-y-auto transition-transform -translate-x-full w-11/12 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md flex flex-col space-y-6 shadow-lg`}>
         
-        <div className="w-full flex items-center justify-between pb-4 border-b border-b-zinc-300 dark:border-b-zinc-500/40 px-4">
+        <div className="w-full flex items-center justify-between pb-4 border-b border-b-zinc-300 dark:border-b-zinc-500/40 px-2">
         
           {/* (drawer): title */}
           <div className="flex items-center space-x-2">
-            <h1 className="text-zinc-500 dark:text-zinc-300 rounded-md flex items-center space-x-2 leading-3">
+            <h1 className="text-zinc-500 dark:text-zinc-300 rounded-md flex items-center space-x-1 leading-3">
               <p className="opacity-60 text-sm">yours</p>
               <p className="text-lg ">Tcitrogg</p>
             </h1>
@@ -195,7 +227,7 @@ export default function Home() {
         <div className="w-full h-full flex flex-col justify-between overflow-y-auto">
             
             {/* (drawer): upper */}
-            <section className="space-y-4 px-4">
+            <section className="space-y-4 px-2">
               <section className="w-full space-y-1 pt-1">
                 <Link href={"/archive"} className="w-full flex items-center space-x-2 p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
                   <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>

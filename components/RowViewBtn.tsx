@@ -63,7 +63,7 @@ export default function RowViewBtn({ data, isViewGrid }: any) {
                   {/* <!-- <p className="font-semibold">Modal 1</p> --> */}
                   <div className="w-full flex items-center space-x-2">
                       <i className="icon icon-ic_fluent_text_align_left_20_regular flex text-xl text-gray-700 bg-amber-500 rounded p-0.5"></i>
-                    <div className="flex flex-col justify-start -space-y-2">
+                    <div className="flex flex-col justify-start -space-y-1">
                       <h5 className="text- font-medium w-44 text-ellipsis overflow-hidden whitespace-nowrap">{data.title}</h5>
                       <p className="text-xs opacity-70 leading-5">t/Shanks</p>
                     </div>

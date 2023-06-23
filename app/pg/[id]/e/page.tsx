@@ -29,11 +29,11 @@ export default function EditPage() {
   }
 
   const handleSubmit = async ({id, content}: any) => {
-    const { data } = await axios.post("/api/posts", {
-      id,
-      content
-    })
-    console.log(data)
+    // const { data } = await axios.post("/api/posts", {
+    //   id,
+    //   content
+    // })
+    // console.log(data)
     router.back()
   }
 
@@ -50,7 +50,7 @@ export default function EditPage() {
           <button onClick={handleSubmit} title="Save page" className="p-1 relative hover:bg-transparent/10 dark:hover:bg-zinc-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2 flex md:hidden items-center mr-1.5">
             
             {/* ~ go back home link: icon */}
-            <i className="icon icon-ic_fluent_checkmark_20_filled flex text-xl opacity- dark:text-amber-500"></i>
+            <i className="icon icon-ic_fluent_checkmark_20_filled flex text-2xl opacity- dark:text-amber-500"></i>
 
             {/* ~ go back home link: page avatar */}
             <div className="overflow-hidden rounded-full">
@@ -77,38 +77,19 @@ export default function EditPage() {
           </div>
 
           {/* ~ header: page title */}
-          <h1 contentEditable className="text-lg font-semibold flex items-center bg-transparent/10dark:bg-zinc-500/20 pl-1 pr-3 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2">
+          <h1 contentEditable className="text-lg font-medium flex items-center bg-transparent/10dark:bg-zinc-500/20 pl-1 pr-3 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600 space-x-2">
             Page {`${params.id}`}
           </h1>
         </div>
 
-        {/* ~ header: more btn */}
-        <button id="eachViewRowMore-btn" title="More" className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-          <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-xl"></i>
-        </button>
-      </header>
-      <header className="hidden w-full bg-zinc-300 text-zinc-700 py-2 px-2 flex items-center justify-between md:rounded-t-2xl">
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center">
 
-          {/* ~ header: page title */}
-          <h1 className="text-xl font-semibold flex items-center bg-transparent/10dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full space-x-1.5">
-
-            {/* ~ page title: page avatar */}
-            <div className="overflow-hidden rounded-full">
-              <Avatar
-                size={27}
-                name="Pages"
-                variant="bauhaus"
-              />
-            </div>
-            <span className="">Page {`${params.id}`}</span>
-          </h1>
+          {/* ~ header: more btn */}
+          <button title="More" className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-2xl"></i>
+          </button>
         </div>
 
-        {/* ~ header: more btn */}
-        <button id="eachViewRowMore-btn" title="More" className="flex p-1 relative hover:bg-transparent/10 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <i className="icon icon-ic_fluent_more_vertical_20_regular flex text-xl"></i>
-        </button>
       </header>
 
       {/* (app page): content */}
