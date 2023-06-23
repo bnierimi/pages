@@ -165,7 +165,7 @@ export default async function Home() {
         <ul className={`h- w-full py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
           {
             dbData.map((eachPage:any, key:any) => <li key={key} className="w-full">
-              <RowViewBtn data={eachPage} isViewGrid={isViewGrid}/>
+              <RowViewBtn data={{id: key, title:eachPage}} isViewGrid={isViewGrid}/>
             </li>)
           }
         </ul>

@@ -23,7 +23,7 @@ export default function RowViewBtn({ data, isViewGrid }: any) {
       <div className={`w-full h-full flex justify-between items-center rounded-lg ${isViewGrid ? "border border-zinc-300 dark:border-zinc-500/40 pl-2.5" : ""}`}>
 
         {/* (view row's btn): link to page */}
-        <Link href={`/pg/${data.shortid}`} className={`w-full py-2.5 flex focus:outline-none focus:ring-0`}>
+        <Link href={`/pg/${data.id}`} className={`w-full py-2.5 flex focus:outline-none focus:ring-0`}>
           <div className={`w-full flex items-center space-x-2.5`}>
 
             {/* ~ link to page: icon */}
