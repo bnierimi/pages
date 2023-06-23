@@ -4,17 +4,17 @@
 (https://t-pages-testnet.vercel.app)
 
 ## list of interfaces
--[x] `/`          - Home
+-[x] `/`          : Home
   -[x] theme btn
   -[x] drawer-menu btn
   -[%] view btn
   -[ ] search btn
   -[%] filter btn
--[x] `/pg/[id]`   - Page
--[x] `/pg/[id]/e` - Page edit
--[x] `/pg/new`    - New page
--[x] `/archive`    - Archive
--[x] `/bin`        - Bin
+-[x] `/pg/[id]`   : Page
+-[x] `/pg/[id]/e` : Page edit
+-[x] `/pg/new`    : New page
+-[x] `/archive`   : Archive
+-[x] `/bin`       : Bin
 
 - more btn: rowbtn
     -[x] `/`
@@ -38,6 +38,17 @@ Stage    | Design  | Function
 Pages    | -[ ] .  | -[ ] .
 Labels   | -[ ] .  | -[ ] .
 Playlist | -[ ] .  | -[ ] .
+
+## Editor features
+- Header
+- Code .. note highlighted yet
+- Paragraph
+- List
+  - Nestedlist
+  - Checklist
+- Image
+- Quote
+-[ ] need to change the icons and the layout of the tools
 
 ## Getting Started
 First, run the development server:
