@@ -1,7 +1,7 @@
 `tcitrogg/@bnierimi/repo/Pages`
 
 ## Demo
-(https://tctrgg-pages.vercel.app)
+(https://t-pages-testnet.vercel.app)
 
 ## list of interfaces
 -[x] `/`          - Home
@@ -28,7 +28,7 @@
 - modal
   -[?] are you sure?
 
--[ ] still want to edit the design of `/pg/[id]` and `/pg/[id]/e`
+-[x] still want to edit the design of `/pg/[id]` and `/pg/[id]/e`
 
 "[ ] {on, off}line toast", "@using tag --instead label", "[ ] make error.tsx", "[ ] another word for {playlist}"
 

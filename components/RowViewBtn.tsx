@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Page } from "@prisma/client";
 
 export default function RowViewBtn({ data, isViewGrid }: any) {
   const [isMoreVisible, setIsMoreVisible] = useState(false);
@@ -22,7 +23,7 @@ export default function RowViewBtn({ data, isViewGrid }: any) {
       <div className={`w-full h-full flex justify-between items-center rounded-lg ${isViewGrid ? "border border-zinc-300 dark:border-zinc-500/40 pl-2.5" : ""}`}>
 
         {/* (view row's btn): link to page */}
-        <Link href={`/pg/${data.id}`} className={`w-full py-2.5 flex focus:outline-none focus:ring-0`}>
+        <Link href={`/pg/${data.shortid}`} className={`w-full py-2.5 flex focus:outline-none focus:ring-0`}>
           <div className={`w-full flex items-center space-x-2.5`}>
 
             {/* ~ link to page: icon */}
@@ -36,7 +37,7 @@ export default function RowViewBtn({ data, isViewGrid }: any) {
 
             {/* ~ link to page: info */}
             <div className={`relative flex flex-col ${isViewGrid ? " w-8/12 md:w-11/12" : "w-8/12 md:w-5/12"} `}>
-              <p className={`font-medium w-full text-ellipsis overflow-hidden whitespace-nowrap`}>{data.title} {data.surl}</p>
+              <p className={`font-medium w-full text-ellipsis overflow-hidden whitespace-nowrap`}>{data.title}</p>
               <time className="text-xs opacity-70">0{data.id}:26, June {data.id * 2 + 1} 2023</time>
             </div>
           </div>

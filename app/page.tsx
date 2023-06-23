@@ -6,14 +6,19 @@ import Avatar from "boring-avatars";
 import axios from "axios";
 // import ShortUniqueId from "short-unique-id";
 
+import { Page } from "@prisma/client";
+
 import RowViewBtn from "@/components/RowViewBtn";
 import ThemeBtn from "@/components/ThemeBtn";
 
-import { useState } from "react";
+import { useState, cache, use } from "react";
 import MoreApps from "@/components/MoreApps";
 import Account from "@/components/Account";
 
-export default function Home() {
+
+// const getPages = async () => await fetch("http://localhost:3000/api/pages").then((res) => res.json());
+
+export default async function Home() {
   
   
   // const createSurl = (length: number = 9)=>{
@@ -43,7 +48,7 @@ export default function Home() {
     setIsDrawerVisible(false);
   }
 
-  // const data = axios.get("/api/pages")
+  // let pages = getPages();
   
   const dbData = [
     "the path of E", "my logbook", "don't give up on me", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
@@ -161,8 +166,8 @@ export default function Home() {
         {/* ~ list of pages: display pages */}
         <ul className={`h- w-full py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
           {
-            dbData.map((eachData, key):any => <li key={key} className="w-full">
-              <RowViewBtn data={{id: key, title: eachData}} isViewGrid={isViewGrid}/>
+            dbData.map((eachPage:any, key:any) => <li key={key} className="w-full">
+              <RowViewBtn data={eachPage} isViewGrid={isViewGrid}/>
             </li>)
           }
         </ul>
@@ -208,7 +213,7 @@ export default function Home() {
       <div onClick={disableDrawerVisible} className="w-full h-full absolute bg-transparent/20 dark:bg-transparent/20"></div>
 
       {/* (drawer): drawer */}
-      <div id="menuDrawer" className={`fixed top-0 left-full z-50 h-mobileScreenmd: h-screen py-4 px-2 overflow-y-auto transition-transform -translate-x-full w-11/12 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md flex flex-col space-y-6 shadow-lg`}>
+      <div id="menuDrawer" className={`fixed top-0 left-full z-50 h-mobileScreenmd: h-screen py-4 px-4 overflow-y-auto transition-transform -translate-x-full w-11/12 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md flex flex-col space-y-6 shadow-lg`}>
         
         <div className="w-full flex items-center justify-between pb-4 border-b border-b-zinc-300 dark:border-b-zinc-500/40 px-2">
         
@@ -227,7 +232,7 @@ export default function Home() {
         <div className="w-full h-full flex flex-col justify-between overflow-y-auto">
             
             {/* (drawer): upper */}
-            <section className="space-y-4 px-2">
+            <section className="space-y-4 px-">
               <section className="w-full space-y-1 pt-1">
                 <Link href={"/archive"} className="w-full flex items-center space-x-2 p-2 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
                   <i className="icon icon-ic_fluent_archive_20_regular flex text-xl"></i>
