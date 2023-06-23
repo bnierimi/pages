@@ -6,8 +6,6 @@ import Avatar from "boring-avatars";
 import axios from "axios";
 // import ShortUniqueId from "short-unique-id";
 
-import { Page } from "@prisma/client";
-
 import RowViewBtn from "@/components/RowViewBtn";
 import ThemeBtn from "@/components/ThemeBtn";
 
