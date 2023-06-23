@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Page } from "@prisma/client";
 
 export default function RowViewBtn({ data, isViewGrid }: any) {
   const [isMoreVisible, setIsMoreVisible] = useState(false);
