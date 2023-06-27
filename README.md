@@ -7,9 +7,9 @@
 -[x] `/`          : Home
   -[x] theme btn
   -[x] drawer-menu btn
-  -[%] view btn
+  -[*] view btn
   -[ ] search btn
-  -[%] filter btn
+  -[%] sortby btn
 -[x] `/pg/[id]`   : Page
 -[x] `/pg/[id]/e` : Page edit
 -[x] `/pg/new`    : New page
