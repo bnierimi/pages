@@ -9,30 +9,30 @@ import axios from "axios";
 import RowViewBtn from "@/components/RowViewBtn";
 import ThemeBtn from "@/components/ThemeBtn";
 
-import { useState, cache, use } from "react";
+import { useState, useEffect } from "react";
 import MoreApps from "@/components/MoreApps";
 import Account from "@/components/Account";
+import NewPageBtn from "@/components/NewPageBtn";
+
+// import { getPages } from "@/lib/prisma/pages";
 
 
-// const getPages = async () => await fetch("http://localhost:3000/api/pages").then((res) => res.json());
+// const getPages = async () => {
+//   const res = await fetch("/api/getPages")
+//   return res.json()
+// }
 
 export default async function Home() {
-  
-  
-  // const createSurl = (length: number = 9)=>{
-  //   const uid = new ShortUniqueId({ length });
-  //   return uid();
-  // }
 
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [isSortByVisible, setIsSortByVisible] = useState(false);
   const [isViewGrid, setIsViewGrid] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
   
-  const handleFilter = ()=>{
-    setIsFilterVisible(true);
+  const handleSortBy = ()=>{
+    setIsSortByVisible(true);
   }
-  const disableFilter = ()=>{
-    setIsFilterVisible(false);
+  const disableSortBy = ()=>{
+    setIsSortByVisible(false);
   }
 
   const handleViewGrid = ()=>{
@@ -47,8 +47,22 @@ export default async function Home() {
   }
 
   // let pages = getPages();
-  
-  const dbData = [
+  // const [pages, setPages] = useState([])
+
+  // let pagesdb = await fetch("/api/getPages");
+
+  // useEffect(() => {
+  // //   // setLoading(true)
+  //   getPages()
+  //   .then((data) => {
+  //     setPages(data)
+  //     // setLoading(false)
+  //   })
+  // }, [])
+
+  // console.log(pages)
+
+  const pages = [
     "the path of E", "my logbook", "don't give up on me", "grandline", "Contract code sample", "henjin", "reishi", "night owl",
     "note-lang"
   ];
@@ -73,15 +87,8 @@ export default async function Home() {
 
             {/* ~ header: title */}
             <h1 className="text-xl font-medium flex items-center space-x-2 bg-transparent/10dark:bg-zinc-500/20 py-1 pl-1 pr-3 rounded-full">
-              <div className="overflow-hidden rounded-full">
-                <Avatar
-                  size={27}
-                  name="Pages"
-                  variant="bauhaus"
-                  colors={["#f59e0b", "#1a1a1a", "#663399"]}
-                />
-              </div>
-              <span className="">Pages</span>
+              <span className="opacity-30">t/</span>
+              Pages
             </h1>
           </div>
 
@@ -90,24 +97,24 @@ export default async function Home() {
       </div>
       
       {/* (app): list of pages */}
-      <section className="w-full h-full pb-20 md:pb-10 pt-16 md:pt-0 relative overflow-y-auto scrollbar">
+      <section className="w-full h-full pb-20 md:pb-10 pt-16 md:pt-0 relative">
         
         {/* ~ list of pages: top bar */}
 		    <div className="w-full flex items-center justify-between px-4 md:px-10 lg:px-20 py-1">
           
-          {/* ~ top bar: filter select */}
+          {/* ~ top bar: sortby select */}
             {/* <i className="icon icon-ic_fluent_arrow_down_20_regular flex text-xs"></i> */}
-          <div tabIndex={-1}>
-            <button onClick={handleFilter} className="bg-zinc-200 dark:bg-zinc-500/20 hover:bg-zinc-300 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 text-xs flex items-center space-x-1 rounded-full px-2 py-1 hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-violet-600">
+          <div>
+            <button onClick={handleSortBy} className="bg-zinc-200 dark:bg-zinc-500/20 hover:bg-zinc-300 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 text-xs flex items-center space-x-1 rounded-full px-2 py-1 hover:cursor-pointer focus:outline-none focus:ring-1 focus:ring-violet-600">
               <p className="">Last opened by me</p>
             </button>
             
-            {/* (filter modal): <sm> */}
-            <div className={`${isFilterVisible ? "flex" : "hidden"} fixed md:absolute right-0 bottom-0 z-40 h-full w-full md:rounded-2xl bg-transparent/20 dark:bg-transparent/20 md:bg-transparent dark:md:bg-transparent`}>
-              {/* (filter modal): overlay */}
-              <div onClick={disableFilter} className="absolute w-full h-full md:rounded-2xl"></div>
+            {/* (sortby modal): <sm> */}
+            <div className={`${isSortByVisible ? "flex" : "hidden"} fixed md:absolute right-0 bottom-0 z-40 h-full w-full md:rounded-2xl bg-transparent/20 dark:bg-transparent/20 md:bg-transparent dark:md:bg-transparent`}>
+              {/* (sortby modal): overlay */}
+              <div onClick={disableSortBy} className="absolute w-full h-full md:rounded-2xl"></div>
               
-              {/* (filter modal): <sm body> */}
+              {/* (sortby modal): <sm body> */}
               <div className={`w-full md:w-60 h-fit z-50 absolute bottom-0 md:right-14 lg:right-24 md:top-3 flex flex-col p-1.5`}>
 
                 <div className="w-full h-full p-2 md:p-1 bg-zinc-100 dark:bg-zinc-800 backdrop-blur-md rounded-2xl text- shadow-lg md:shadow ">
@@ -115,17 +122,17 @@ export default async function Home() {
                   {/* (modal): <sm> : upper */}
                   <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex md:hidden items-start justify-between space-x-4">
                     {/* <!-- <p className="font-semibold">Modal 1</p> --> */}
-                    <div className="w-full flex items-center space-x-2">
-                      <i className="icon icon-ic_fluent_filter_20_regular flex text-xl rounded p-0.5bg-amber-500/5"></i>
-                      <p className="text-sm leading-5">Filter</p>
+                    <div className="w-full flex items-center space-x-1">
+                      <i className="icon icon-ic_fluent_filter_20_regular flex text-2xl rounded p-0.5bg-amber-500/5"></i>
+                      <p className="text-sm leading-5">Sort by</p>
                     </div>
 
-                    <button onClick={disableFilter} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-gray-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+                    <button onClick={disableSortBy} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-gray-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
                       <i className="icon icon-ic_fluent_chevron_down_20_regular flex text-lg"></i>
                     </button>
                   </div>
 
-                  {/* (filter modal): <sm> : lower */}
+                  {/* (sortby modal): <sm> : lower */}
                   <div className="w-full pt-2 md:pt-0 space-y-3">
                     <section className="w-full flex flex-col space-y-1 ">
                       <button className="w-full flex items-center space-x-2 p-2 hover:bg-gray-300 dark:hover:bg-gray-500/20 rounded-xl focus:outline-none focus:ring-1 focus:ring-violet-600">
@@ -162,10 +169,11 @@ export default async function Home() {
         </div>
         
         {/* ~ list of pages: display pages */}
-        <ul className={`h- w-full py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"}`}>
+        <ul className={`h- w-full py-1 ${isViewGrid ? "grid grid-cols-2 lg:grid-cols-3 gap-2 px-4 md:px-10 lg:px-20 py-2" : " space-y-1"} overflow-y-auto scrollbar`}>
           {
-            dbData.map((eachPage:any, key:any) => <li key={key} className="w-full">
-              <RowViewBtn data={{id: key, title:eachPage}} isViewGrid={isViewGrid}/>
+            pages.map((eachPage:any, key:any) => <li key={key} className="w-full">
+              {/* { `${eachPage}` } */}
+              <RowViewBtn data={ {id:key, title:eachPage} } isViewGrid={isViewGrid}/>
             </li>)
           }
         </ul>
@@ -179,13 +187,7 @@ export default async function Home() {
         {/* ~ footer: btns */}
         <div className="w-full flex items-center space-x-4 px-4">
           <div className="rounded-full bg-zinc-200 dark:bg-zinc-800">
-            <button title='Account' className="flex rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
-              <Avatar
-                size={25}
-                name={`shisho`}
-                variant="bauhaus"
-              />
-            </button>
+            <Account/>
           </div>
           <div className="w-full flex items-center space-x-3 bg-zinc-200 dark:bg-zinc-800 px-4 py-2 rounded-t-2xl">
             <button title="Library" className="p-1.5 relative bgzinc-200 hover:bg-zinc-300 dark:md:bg-zinc-500/20 dark:hover:bg-zinc-500/30 md:bg-zinc-300 md:hover:bg-zinc-400/50 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
@@ -198,9 +200,10 @@ export default async function Home() {
         </div>
 
         {/* (app): <sm> create new page btn */}
-        <Link href="/pg/new" title="New page" className="p-2 absolute bottom-5 right-10 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full ring-4 ring-zinc-100 dark:ring-zinc-900 focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg">
+        <Link href="/pg/new" title="New page" className="hidden p-2 absolute bottom-5 right-10 bg-amber-500 hover:bg-amber-400 dark:text-zinc-700 rounded-full ring-4 ring-zinc-100 dark:ring-zinc-900 focus:outline-none focus:ring-1 focus:ring-violet-600 shadow-lg">
           <i className="icon icon-ic_fluent_add_20_filled flex text-2xl"></i>
         </Link>
+        <NewPageBtn/>
       </div>
     </main>
 

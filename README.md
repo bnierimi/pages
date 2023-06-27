@@ -30,7 +30,11 @@
 
 -[x] still want to edit the design of `/pg/[id]` and `/pg/[id]/e`
 
+-[ ] next-pwa
+
+
 "[ ] {on, off}line toast", "@using tag --instead label", "[ ] make error.tsx", "[ ] another word for {playlist}"
+
 
 ## Checklist
 Stage    | Design  | Function

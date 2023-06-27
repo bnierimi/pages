@@ -19,7 +19,7 @@ export default function NewPage() {
             {/* (app page): pageTitle input */}
             <div className="w-full space-y- flex flex-col">
               <label htmlFor="pageTitle" className="text-sm opacity-60">Title</label>
-              <input type="text" name="pageTitle" id="pageTitle" required className="w-full rounded-full p-2 bg-transparent border border-zinc-300 dark:border-zinc-500/30 focus:outline-none focus:ring-1 focus:ring-violet-600" />
+              <input type="text" name="pageTitle" id="pageTitle" required className="w-full rounded-full p-1.5 bg-transparent border border-zinc-300 dark:border-zinc-500/30 focus:outline-none focus:ring-1 focus:ring-violet-600" />
             </div>
 
             {/* (app page): pageTitle select tags */}

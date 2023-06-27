@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Avatar from "boring-avatars";
 
-export default function Account({ size }: any) {
+export default function Account() {
   const [isAccountVisible, setIsAccountVisible] = useState(false);
 
   const handleAccount = ()=>{
@@ -16,41 +16,68 @@ export default function Account({ size }: any) {
   }
 
   const listOfAccount = [
-    "CaGPA", "Itemize", "Mangafy", "Memeflix", "Kyu", "Umuvid", "Ghostflames", "Henjin", "Sadeikuma",
+    "Academia", "Tssue", "Itemize", "Mangafy", "Note", "Umuvid", "Ghostflames", "Henjin", "Sadeikuma",
   ];
 
   return(
     <>
-      <button title='Account' className="flex rounded-full p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+
+      <button onClick={handleAccount} title='Account' className="rounded-full flex md:p-1 lg:p-1 hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
         <Avatar
-          size={size ? size : 30}
-          name={`shisho`}
-          variant="bauhaus"
+          size={30}
+          name={`kgyk`}
+          variant="beam"
         />
       </button>
       
         {/* (modal): <sm> */}
-      <div className={`${isAccountVisible ? "flex" : "hidden"} w-fit h-fit z-50 absolute right-10 bottom-24 flex flex-col p-3 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-bl-xl md:rounded-t-xl text- shadow-lg md:shadow`}>
+      <div className={`${isAccountVisible ? "flex" : "hidden"} w-full h-72 md:w-fit md:h-fit fixed z-50 left-0 bottom-0 md:left-auto md:top-14 lg:right-10 lg:top-20 flex flex-col justify-between p-1 bg-zinc-200 dark:bg-zinc-800 backdrop-blur-md rounded-t-2xl md:rounded-2xl text- shadow-lg md:shadow space-y-3`}>
 
         {/* (modal): <sm> : upper */}
-        <div className="w-full px-1.5 py-2 border-b border-b-gray-300 dark:border-b-gray-500/20 flex items-start justify-between space-x-4">
-          {/* <!-- <p className="font-semibold">Modal 1</p> --> */}
-          <div className="w-full flex items-start space-x-2">
-              {/* <i className="icon icon-ic_fluent_text_align_left_20_regular flex text-xl text-gray-700 bg-amber-500 rounded p-0.5"></i> */}
-              <div className="w-full flex items-center space-x-2">
-                <i className="icon icon-ic_fluent_person_20_regular flex text-xl rounded p-0.5bg-amber-500/5"></i>
-                <p className="text-sm leading-5">Account</p>
+        <div className="w-full px-3 py-3 flex items-start justify-between space-x-4 rounded-2xl bg-transparent/20">
+          <div className="">
+            <div className="flex space-x-2">
+              <Avatar
+                size={45}
+                name={`kgyk`}
+                variant="beam"
+              />
+              <div className="space-y-4">
+                <p className="font-medium">
+                  <span className="opacity-50">t/</span>
+                  kgyk
+                </p>
+                <button className="px-4 py-1 rounded-xl font-medium  border border-zinc-300 dark:border-zinc-600  text-sm">
+                  Manage your Tcitrogg Account
+                </button>
               </div>
+            </div>
           </div>
-
-          <button onClick={disableAccount} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-gray-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
-            <i className="icon icon-ic_fluent_chevron_up_20_regular flex text-lg"></i>
-          </button>
         </div>
         
         {/* (modal): <sm> : lower */}
-        <div className="w-full pt-2 space-y-3">
-          <p className="text-xs leading-5 opacity-40 italic">details</p>
+        <div className="w-full pb-1 space-y-3 md:space-y-2">
+
+          <button className="w-full flex items-center justify-center p-2 space-x-2 rounded-xl hover:bg-zinc-300 dark:hover:bg-zinc-500/20 focus:outline-none focus:ring-1 focus:ring-violet-600">
+            <i className="icon icon-ic_fluent_arrow_exit_20_regular flex text-xl"></i>
+            <p className="text-sm">Sign out</p>
+          </button>
+
+          <div className="w-full flex items-center justify-between pl-3 pr-2">
+            <div className="w-full flex items-center space-x-3 divide-x divide-zinc-300 dark:divide-zinc-600 text-sm md:text-xs">
+              <Link href={"/"}>
+                <p className="opacity-80 hover:opacity-100 hover:underline ">Privacy policy</p>
+              </Link>
+              <Link href={"/"}>
+                <p className="opacity-80 hover:opacity-100 hover:underline pl-3">Terms of service</p>
+              </Link>
+            </div>
+
+            {/* dismiss btn */}
+            <button onClick={disableAccount} className="p-1 relative hover:bg-transparent/10 dark:hover:bg-gray-500/20 rounded-full focus:outline-none focus:ring-1 focus:ring-violet-600">
+              <i className="icon icon-ic_fluent_dismiss_20_regular flex text-lg"></i>
+            </button>
+          </div>
         </div>
       </div>
     </>
