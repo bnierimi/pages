@@ -1,7 +1,8 @@
 `tcitrogg/@bnierimi/repo/Pages`
 
 ## Demo
-(https://t-pages-testnet.vercel.app)
+`:{testnet}:`
+(https://pages-tnet.vercel.app)
 
 ## list of interfaces
 -[x] `/`          : Home
